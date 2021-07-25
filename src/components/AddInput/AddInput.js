@@ -21,6 +21,12 @@ function AddInput({
         setTodos(updatedTodos);
         setTodo("")
     }
+    const handleKeypress = e => {
+        //it triggers by pressing the enter key
+      if (e.key === "Enter") {
+        addTodo();
+      }
+    };
 
     return (
         <div className="input-container">
@@ -29,6 +35,7 @@ function AddInput({
                 value={todo} 
                 onChange={(e) => setTodo(e.target.value)}
                 placeholder="Add a new task here..."
+                onKeyPress={handleKeypress}
             />
             <button 
                 className="add-btn"
